@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News &amp; Events - Shalom International School, Panchgani</title>
+  <meta name="description" content="Stay updated with the latest news, announcements, academic calendars, sports events, and parent reviews from Shalom International School, Panchgani.">
+  <link rel="stylesheet" href="page-styles.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Prevent sidebar rules from turning news and reviews into columns */
+    main.news-container {
+      display: block !important;
+      max-width: 1200px !important;
+      margin: 3rem auto !important;
+      padding: 0 1.5rem !important;
+      width: 100% !important;
+    }
+    main.news-container > section {
+      display: block !important;
+      width: 100% !important;
+      clear: both !important;
+    }
+    #news-list,
+    #reviews-list {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 1.5rem !important;
+      width: 100% !important;
+    }
+    @media (max-width: 992px) {
+      #news-list,
+      #reviews-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+    @media (max-width: 640px) {
+      #news-list,
+      #reviews-list {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Header Section -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="header-top__logo">
+        <a href="index.html">
+          <img src="images/logo.webp" alt="Shalom International School logo" width="90" height="90" loading="eager">
+        </a>
+      </div>
+
+      <div class="header-top__text">
+        <h1 class="school-title">Shalom International School &amp; Jr. College</h1>
+        <p class="tagline">English Medium Co-ed School &amp; Jr. College (Established 1996)<br>
+        Affiliated to CISCE (ICSE), SSC &amp; HSC : Maharashtra State Board</p>
+        <ul class="contact-strip">
+          <li>✉ info@shalominternationalschool.com</li>
+          <li>☎ 98506-72949, 982244-0656</li>
+          <li>📍 Panchgani, Maharashtra</li>
+        </ul>
+      </div>
+
+      <div class="lang-select">
+        <button class="lang-select__btn" id="langBtn" aria-expanded="false">🇬🇧 EN <span class="chev">⌄</span></button>
+        <ul class="lang-select__menu" id="langMenu">
+          <li><a href="#" data-lang="en">🇬🇧 English</a></li>
+          <li><a href="#" data-lang="mr">🇮🇳 मराठी</a></li>
+          <li><a href="#" data-lang="hi">🇮🇳 हिंदी</a></li>
+        </ul>
+        <div id="google_translate_element"></div>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="vision-and-mission.html">Vision &amp; Mission</a></li>
+        <li><a href="about_us.html">About us</a></li>
+        <li><a href="facilities.html">Facilities</a></li>
+        <li><a href="management.html">Management</a></li>
+        <li class="has-submenu">
+          <a href="#">For Parents <span class="plus">+</span></a>
+          <ul class="submenu">
+            <li><a href="things-to-bring.html">Things to bring</a></li>
+            <li><a href="parent-declaration.html">Parents declaration</a></li>
+          </ul>
+        </li>
+        <li><a href="news.html" style="color: var(--color-accent);" class="is-current">News &amp; Events</a></li>
+        <li><a href="index.html#form">Admission</a></li>
+        <li><a href="contact-us.html">Contact us</a></li>
+      </ul>
+    </nav>
+
+    <div class="marquee-wrap">
+      <h1 class="marquee">Latest Updates: <span id="marqueeInner">100% ICSE &amp; HSC Results 2026 &nbsp;·&nbsp; Admission Open for 2026-27 &nbsp;·&nbsp; Academic Session starts June 2026, Apply Today!</span></h1>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <h1>School News &amp; Events </h1>
+    <ul class="breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li aria-current="page">News &amp; Events</li>
+    </ul>
+  </section>
+
+  <!-- Main Content Layout -->
+  <main class="news-container">
+
+    <!-- News & Updates Section (Feeds Homepage Grid) -->
+    <section aria-labelledby="news-heading" style="margin-bottom: 4rem;">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span style="display: block; width: 50px; height: 3px; background: var(--color-primary); margin: 0 auto 0.75rem;"></span>
+        <h2 id="news-heading" style="font-size: 2rem; color: var(--color-primary);">All News &amp; Events 2026-27</h2>
+        <p style="color: #666; max-width: 600px; margin: 0.5rem auto 0;">Catch up on campus milestones, announcements, and upcoming activities.</p>
+      </div>
+
+      <!-- #news-list container required by index.html -->
+      <div id="news-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+
+        <article style="background: #fff; padding: 1.75rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); position: relative;">
+          <span style="display: inline-block; background: rgba(var(--color-primary-rgb, 180, 40, 40), 0.1); color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(var(--color-primary-rgb, 180, 40, 40), 0.2);">May 2026</span>
+          <h3 style="font-size: 1.25rem; color: #222; margin-bottom: 0.75rem;">100% ICSE &amp; HSC Results 2026</h3>
+          <p style="color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0;">A proud milestone of excellence! Every single student appearing for the ICSE and HSC boards this year achieved a pass, continuing our unbroken tradition of 100% results across both boards.</p>
+        </article>
+
+        <article style="background: #fff; padding: 1.75rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); position: relative;">
+          <span style="display: inline-block; background: rgba(var(--color-primary-rgb, 180, 40, 40), 0.1); color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(var(--color-primary-rgb, 180, 40, 40), 0.2);">August 2027</span>
+          <h3 style="font-size: 1.25rem; color: #222; margin-bottom: 0.75rem;">30<sup>th</sup> Founders’ Day Celebration</h3>
+          <p style="color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0;">Our talented students celebrated Founders’ Day 2026 with vibrant dances, drama, choir, and patriotic performances, honouring Shalom International School & Junior College’s legacy, values, vision, unity, creativity, and spirit.</p>
+        </article>
+
+        <article style="background: #fff; padding: 1.75rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); position: relative;">
+          <span style="display: inline-block; background: rgba(var(--color-primary-rgb, 180, 40, 40), 0.1); color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(var(--color-primary-rgb, 180, 40, 40), 0.2);">August 2026</span>
+          <h3 style="font-size: 1.25rem; color: #222; margin-bottom: 0.75rem;">Summative Assessment Begun</h3>
+          <p style="color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0;">Summative assessments for 50 marks has officially commenced for all students from Class I to XII, evaluating comprehensive learning outcomes and academic progress for the term.</p>
+        </article>
+
+        <article style="background: #fff; padding: 1.75rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); position: relative;">
+          <span style="display: inline-block; background: rgba(var(--color-primary-rgb, 180, 40, 40), 0.1); color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(var(--color-primary-rgb, 180, 40, 40), 0.2);">September 2026</span>
+          <h3 style="font-size: 1.25rem; color: #222; margin-bottom: 0.75rem;">Science Exhibition 2026</h3>
+          <p style="color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0;">Students from all grades will showcase independent science projects, with categories for science, Arts and Crafts and Technology.<br><br> The Exhibition will be held on 7th September, 2026.</p>
+        </article>
+
+        <article style="background: #fff; padding: 1.75rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); position: relative;">
+          <span style="display: inline-block; background: rgba(var(--color-primary-rgb, 180, 40, 40), 0.1); color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(var(--color-primary-rgb, 180, 40, 40), 0.2);">November 2026</span>
+          <h3 style="font-size: 1.25rem; color: #222; margin-bottom: 0.75rem;">Annual Athletics Day will be announced soon!</h3>
+          <p style="color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0;">This year's Annual Athletic Season will commence with opening ceremony, featuring track and field events, house competitions, and a prize distribution ceremony.</p>
+        </article>
+
+        <article style="background: #fff; padding: 1.75rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); position: relative;">
+          <span style="display: inline-block; background: rgba(var(--color-primary-rgb, 180, 40, 40), 0.1); color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(var(--color-primary-rgb, 180, 40, 40), 0.2);">October 2026</span>
+          <h3 style="font-size: 1.25rem; color: #222; margin-bottom: 0.75rem;">Monsoon Break Dates</h3>
+          <p style="color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0;">The Ganpati cultural festival and monsoon break dates will be announced soon</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Parent Reviews Section (Feeds Homepage Reviews) -->
+    <section aria-labelledby="reviews-heading" style="margin-bottom: 3rem;">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span style="display: block; width: 50px; height: 3px; background: var(--color-primary); margin: 0 auto 0.75rem;"></span>
+        <h2 id="reviews-heading" style="font-size: 2rem; color: var(--color-primary);">Parent Reviews</h2>
+        <p style="color: #666; max-width: 600px; margin: 0.5rem auto 0;">Read what parents and guardians say about their experience with our school.</p>
+      </div>
+
+      <!-- #reviews-list container required by index.html -->
+      <div id="reviews-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+
+        <article style="background: #fdf8f8; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--color-accent); box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+          <h3 style="font-size: 1.1rem; color: var(--color-primary); margin-bottom: 0.5rem;">Mr. Prince</h3>
+          <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin: 0;">"The education and management have many qualifications and take great care of students. Dedicated teachers and management help every child grow."</p>
+        </article>
+
+        <article style="background: #fdf8f8; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--color-accent); box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+          <h3 style="font-size: 1.1rem; color: var(--color-primary); margin-bottom: 0.5rem;">Pari Patil</h3>
+          <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin: 0;">"Best school and good location. The peaceful hill station environment provides a refreshing and focused atmosphere for learning."</p>
+        </article>
+
+        <article style="background: #fdf8f8; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--color-accent); box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+          <h3 style="font-size: 1.1rem; color: var(--color-primary); margin-bottom: 0.5rem;">Ramdas Ithape</h3>
+          <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin: 0;">"Good school and campus. The infrastructure provides students with ample space for both sports and extracurricular growth."</p>
+        </article>
+
+        <article style="background: #fdf8f8; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--color-accent); box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+          <h3 style="font-size: 1.1rem; color: var(--color-primary); margin-bottom: 0.5rem;">Dippak Sharma</h3>
+          <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin: 0;">"School has shown a right path to my child. The individual attention given by teachers has greatly improved academic performance."</p>
+        </article>
+
+        <article style="background: #fdf8f8; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--color-accent); box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+          <h3 style="font-size: 1.1rem; color: var(--color-primary); margin-bottom: 0.5rem;">Saraswati Kathara</h3>
+          <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin: 0;">"Best school in Panchgani. Highly recommend it to parents looking for balanced discipline and quality residential schooling."</p>
+        </article>
+
+        <article style="background: #fdf8f8; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--color-accent); box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+          <h3 style="font-size: 1.1rem; color: var(--color-primary); margin-bottom: 0.5rem;">Rameshwar Fanse</h3>
+          <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin: 0;">"Nice education system! The curriculum encourages practical understanding and regular feedback keeps parents well-informed."</p>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Uniform Footer Structure -->
+  <div id="site-footer-container" data-quote="&ldquo;You can never be overdressed or overeducated.&rdquo; &mdash; Oscar Wilde"></div>
+
+  <!-- Component Scripts & Behavior -->
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/scroll-reveal.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"ad3eefdb8c8a4eef878d318fabc33076","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3cf0529d9bce1e1',t:'MTc4OTcyMDU1Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
