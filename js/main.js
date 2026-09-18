@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    Mobile nav toggle
    ============================================================ */
 const navToggle = document.getElementById('navToggle');
@@ -11,7 +11,7 @@ if (navToggle && navMenu) {
 }
 
 /* ============================================================
-   Language dropdown
+   Language dropdown + Google Translate
    ============================================================ */
 const langBtn = document.getElementById('langBtn');
 const langMenu = document.getElementById('langMenu');
@@ -27,6 +27,39 @@ if (langBtn && langMenu) {
   });
 }
 
+// Wire up the language links to Google Translate
+function changeLanguage(langCode) {
+  const select = document.querySelector('#google_translate_element select.goog-te-combo');
+  if (select) {
+    select.value = langCode;
+    select.dispatchEvent(new Event('change'));
+  } else {
+    document.cookie = `googtrans=/en/${langCode}; path=/`;
+    document.cookie = `googtrans=/en/${langCode}; domain=.${location.hostname}; path=/`;
+    location.reload();
+  }
+}
+
+document.querySelectorAll('.lang-select__menu a[data-lang]').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    changeLanguage(link.getAttribute('data-lang'));
+    if (langMenu) langMenu.classList.remove('is-open');
+    if (langBtn) langBtn.setAttribute('aria-expanded', 'false');
+  });
+});
+
+window.googleTranslateElementInit = function () {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'en,mr,hi',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false,
+    },
+    'google_translate_element'
+  );
+};
 /* ============================================================
    Page Quotes
    ============================================================ */
@@ -165,4 +198,11 @@ document.addEventListener('DOMContentLoaded', function () {
       console.warn('Fallback to static cards:', err);
     });
 });
-
+document.querySelectorAll('.marquee').forEach((marquee) => {
+  const content = marquee.querySelector('.marquee-content');
+  if (!content || content.parentElement.classList.contains('marquee-viewport')) return;
+  const viewport = document.createElement('span');
+  viewport.className = 'marquee-viewport';
+  content.parentNode.insertBefore(viewport, content);
+  viewport.appendChild(content);
+});

@@ -377,6 +377,12 @@ header,
   to   { transform: translateX(-100%); }
 }
 
+.marquee-viewport {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+}
 /* ============================================================
    Hero slider
    ============================================================ */
