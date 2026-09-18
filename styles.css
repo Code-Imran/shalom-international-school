@@ -332,57 +332,7 @@ header,
 }
 .nav-toggle span { width: 26px; height: 3px; background: #fff; }
 
-/* ---------- Marquee (Exact Intact Code) ---------- */
-.marquee-wrap {
-  background: var(--color-bg-soft);
-  overflow: hidden;
-  white-space: nowrap;
-  padding: .65rem 0;
-  border-bottom: 1px solid #eee;
-}
-.marquee {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  margin: 0;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-heading);
-}
-.marquee-label {
-  flex: 0 0 auto;
-  position: relative;
-  z-index: 2;
-  margin-left: 1.5rem;
-  padding: .3rem .8rem;
-  border-radius: 3px;
-  background: var(--color-primary);
-  color: #fff;
-  font-size: .9rem;
-  font-weight: 700;
-  letter-spacing: .03em;
-  line-height: 1.35;
-  text-transform: uppercase;
-}
-.marquee-content {
-  display: inline-block;
-  flex: 0 0 auto;
-  padding-left: 100%;
-  animation: marquee-scroll 26s linear infinite;
-}
-.marquee-wrap:hover .marquee-content { animation-play-state: paused; }
-@keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-100%); }
-}
-
-.marquee-viewport {
-  flex: 1 1 auto;
-  min-width: 0;
-  overflow: hidden;
-  position: relative;
-}
+.marquee-wrap{background:var(--color-bg-soft,#f8fafc);padding:.65rem 0;border-bottom:1px solid #eee}.marquee{display:flex;align-items:center;gap:1.25rem;margin:0;font-family:var(--font-body,inherit);font-size:1rem;font-weight:600;color:var(--color-heading,#1e293b)}.marquee-label{flex:0 0 auto;margin-left:1.5rem;padding:.3rem .8rem;border-radius:3px;background:var(--color-primary,#dc2626);color:#fff;font-size:.9rem;font-weight:700;letter-spacing:.03em;line-height:1.35;text-transform:uppercase}.ticker-viewport{position:relative;flex:1 1 auto;height:1.6rem;overflow:hidden;mask-image:linear-gradient(to right,black 85%,transparent 100%);-webkit-mask-image:linear-gradient(to right,black 85%,transparent 100%)}.ticker-item{position:absolute;inset:0;height:1.6rem;line-height:1.6rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;letter-spacing:-.01em;transform:translateY(100%);transition:opacity .35s ease,transform .5s cubic-bezier(.2,.8,.2,1),letter-spacing .5s ease;pointer-events:none;will-change:transform,opacity}.ticker-item.active{opacity:1;letter-spacing:0;transform:translateY(0);pointer-events:auto}
 /* ============================================================
    Hero slider
    ============================================================ */

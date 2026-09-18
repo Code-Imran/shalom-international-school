@@ -101,10 +101,18 @@
       </ul>
     </nav>
 
-    <div class="marquee-wrap">
-      <h1 class="marquee">Latest Updates: <span id="marqueeInner">100% ICSE &amp; HSC Results 2026 &nbsp;·&nbsp; Admission Open for 2026-27 &nbsp;·&nbsp; Academic Session starts June 2026, Apply Today!</span></h1>
+   <div class="marquee-wrap">
+  <div class="marquee">
+    <span class="marquee-label">Latest Updates</span>
+    <div class="ticker-viewport">
+      <span class="ticker-item active">Outstanding Board Results: 100% Pass Rate in ICSE, SSC &amp; HSC Examinations!</span>
+<span class="ticker-item">Summative Assessment completed successfully — August 2026.</span>
+<span class="ticker-item">Annual Science Exhibition: Showcasing innovative student projects this September 2026!</span>
+<span class="ticker-item">Diwali Vacation schedule will be notified shortly.</span>
     </div>
-  </header>
+  </div>
+</div>
+</header>
 
   <!-- Page Banner -->
   <section class="page-banner">
@@ -220,9 +228,41 @@
   <!-- Component Scripts & Behavior -->
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
+<! -- Marquee animation script -->
+<script>
+  (function () {
+    const items = document.querySelectorAll('.ticker-item');
+    const wrap = document.querySelector('.marquee-wrap');
+    if (!items.length || !wrap) return;
+
+    let index = 0;
+    let timer = null;
+
+    function next() {
+      items[index].classList.remove('active');
+      index = (index + 1) % items.length;
+      items[index].classList.add('active');
+    }
+
+    function play() {
+      if (!timer) timer = setInterval(next, 3200);
+    }
+
+    function pause() {
+      clearInterval(timer);
+      timer = null;
+    }
+
+    wrap.addEventListener('mouseenter', pause);
+    wrap.addEventListener('mouseleave', play);
+
+    play();
+  })();
+</script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="js/scroll-reveal.js"></script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"ad3eefdb8c8a4eef878d318fabc33076","r":1,"spa":2}' crossorigin="anonymous"></script>
 <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3cf0529d9bce1e1',t:'MTc4OTcyMDU1Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
 
