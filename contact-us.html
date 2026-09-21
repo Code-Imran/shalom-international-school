@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" style="overflow-x: hidden; max-width: 100vw;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +23,35 @@
   <meta name="twitter:title" content="Contact Shalom International School &amp; Jr. College | Panchgani">
   <meta name="twitter:description" content="Have questions about admissions or boarding? Connect directly with our office in Panchgani.">
   <meta name="twitter:image" content="https://www.shalominternationalschool.com/images/contact-campus-location.jpg">
+
+  <!-- Hard Overflow Guard & Translation Shield Styles -->
+  <style>
+    html, body {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    /* Google Translate Utility Styles (Prevents Layout Shifts & Hides Default Elements) */
+    #google_translate_element {
+      display: none !important;
+    }
+    body {
+      top: 0 !important;
+    }
+    .goog-te-banner-frame,
+    .skiptranslate:not(.lang-select) {
+      display: none !important;
+    }
+    .goog-te-gadget {
+      display: none !important;
+    }
+  </style>
 
   <!-- Favicon & Stylesheets -->
   <link rel="icon" type="image/webp" href="images/logo.webp">
@@ -93,72 +122,79 @@
 
   <!-- Header Section -->
   <header class="site-header">
-    <div class="header-top">
-      <div class="header-top__logo">
-        <a href="index.html" aria-label="Shalom International School Home">
-          <img src="images/logo.webp" alt="Shalom International School crest and emblem" width="120" height="120" style="width: 120px !important; height: 120px !important; max-width: none !important; object-fit: contain; display: block;" loading="eager">
-        </a>
-      </div>
-
-      <div class="header-top__text">
-        <span class="school-title">Shalom International School &amp; Jr. College</span>
-        <p class="tagline">
-          <span class="tagline-primary">English Medium Co-ed School &amp; Jr. College (Established 1996)</span>
-          <span class="tagline-secondary">Affiliated to CISCE (ICSE), SSC &amp; HSC : Maharashtra State Board</span>
-        </p>
-        <ul class="contact-strip">
-          <li><a href="mailto:info@shalominternationalschool.com" style="color:inherit; text-decoration:none;">✉ info@shalominternationalschool.com</a></li>
-          <li><a href="tel:+919850672949" style="color:inherit; text-decoration:none;">☎ 98506-72949</a>, <a href="tel:+919822440656" style="color:inherit; text-decoration:none;">982244-0656</a></li>
-          <li>📍 Panchgani, Maharashtra</li>
-        </ul>
-      </div>
-
-      <div class="lang-select">
-        <button class="lang-select__btn" id="langBtn" aria-expanded="false" aria-haspopup="true">Select Language <span class="chev">⌄</span></button>
-        <ul class="lang-select__menu" id="langMenu">
-          <li><button type="button" class="lang-btn" data-lang="en">🇬🇧 English</button></li>
-          <li><button type="button" class="lang-btn" data-lang="mr">🇮🇳 मराठी</button></li>
-          <li><button type="button" class="lang-btn" data-lang="hi">🇮🇳 हिंदी</button></li>
-        </ul>
-        <div id="google_translate_element"></div>
-      </div>
+  <div class="header-top">
+    <div class="header-top__logo">
+      <a href="index.html" aria-label="Shalom International School Home">
+        <img 
+          src="images/logo.webp" 
+          alt="Shalom International School crest and emblem" 
+          width="120" 
+          height="120" 
+          loading="eager" 
+          fetchpriority="high"
+          style="width: 120px !important; height: 120px !important; max-width: none !important; object-fit: contain; display: block;">
+      </a>
     </div>
 
-    <nav class="main-nav" aria-label="Main Navigation">
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="vision-and-mission.html">Vision &amp; Mission</a></li>
-        <li><a href="about_us.html">About us</a></li>
-        <li><a href="facilities.html">Facilities</a></li>
-        <li><a href="management.html">Management</a></li>
-        <li class="has-submenu">
-          <a href="#">For Parents <span class="plus">+</span></a>
-          <ul class="submenu">
-            <li><a href="things-to-bring.html">Things to bring</a></li>
-            <li><a href="parent-declaration.html">Parents declaration</a></li>
-          </ul>
-        </li>
-        <li><a href="news.html">News &amp; Events</a></li>
-        <li><a href="index.html#form">Admission</a></li>
-        <li><a href="contact-us.html" style="color: var(--color-accent, #0056b3);">Contact us</a></li>
+    <div class="header-top__text">
+      <span class="school-title" style="display: block; font-size: clamp(1.4rem, 2.8vw, 2.1rem); font-weight: 800; color: #fff; line-height: 1.15; letter-spacing: -0.01em;">Shalom International School &amp; Jr. College</span>
+      <p class="tagline">
+        <span class="tagline-primary">English Medium Co-ed School &amp; Jr. College (Established 1996)</span>
+        <span class="tagline-secondary">Affiliated to CISCE (ICSE), SSC &amp; HSC : Maharashtra State Board</span>
+      </p>
+      <ul class="contact-strip">
+        <li><a href="mailto:info@shalominternationalschool.com" style="color: inherit; text-decoration: none;">✉ info@shalominternationalschool.com</a></li>
+        <li><a href="tel:+919850672949" style="color: inherit; text-decoration: none;">☎ 98506-72949</a>, <a href="tel:+919822440656" style="color: inherit; text-decoration: none;">982244-0656</a></li>
+        <li>📍 Panchgani, Maharashtra</li>
       </ul>
-    </nav>
+    </div>
 
-    <div class="marquee-wrap">
-      <div class="marquee">
-        <span class="marquee-label">Latest Updates</span>
-        <div class="ticker-viewport">
-          <span class="ticker-item active">Outstanding Board Results: 100% Pass Rate in ICSE, SSC &amp; HSC Examinations!</span>
-          <span class="ticker-item">Summative Assessment completed successfully — August 2026.</span>
-          <span class="ticker-item">Annual Science Exhibition: Showcasing innovative student projects this September 2026!</span>
-          <span class="ticker-item">Diwali Vacation schedule will be notified shortly.</span>
-        </div>
+    <div class="lang-select">
+      <button class="lang-select__btn" id="langBtn" type="button" aria-expanded="false" aria-haspopup="true">Select Language <span class="chev">⌄</span></button>
+      <ul class="lang-select__menu" id="langMenu">
+        <li><button type="button" class="lang-btn" data-lang="en">🇬🇧 English</button></li>
+        <li><button type="button" class="lang-btn" data-lang="mr">🇮🇳 मराठी</button></li>
+        <li><button type="button" class="lang-btn" data-lang="hi">🇮🇳 हिंदी</button></li>
+      </ul>
+      <div id="google_translate_element"></div>
+    </div>
+  </div>
+
+  <nav class="main-nav" aria-label="Main Navigation">
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vision-and-mission.html">Vision &amp; Mission</a></li>
+      <li><a href="about_us.html">About us</a></li>
+      <li><a href="facilities.html">Facilities</a></li>
+      <li><a href="management.html">Management</a></li>
+      <li class="has-submenu">
+        <a href="#">For Parents <span class="plus">+</span></a>
+        <ul class="submenu">
+          <li><a href="things-to-bring.html">Things to bring</a></li>
+          <li><a href="parent-declaration.html">Parents declaration</a></li>
+        </ul>
+      </li>
+      <li><a href="news.html">News &amp; Events</a></li>
+      <li><a href="index.html#form">Admission</a></li>
+      <li><a href="contact-us.html">Contact us</a></li>
+    </ul>
+  </nav>
+
+  <div class="marquee-wrap">
+    <div class="marquee">
+      <span class="marquee-label">Latest Updates</span>
+      <div class="ticker-viewport">
+        <span class="ticker-item active">Outstanding Board Results: 100% Pass Rate in ICSE, SSC &amp; HSC Examinations!</span>
+        <span class="ticker-item">Summative Assessment completed successfully — August 2026.</span>
+        <span class="ticker-item">Annual Science Exhibition: Showcasing innovative student projects this September 2026!</span>
+        <span class="ticker-item">Diwali Vacation schedule will be notified shortly.</span>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- Page Banner -->
   <section class="page-banner">
@@ -308,8 +344,95 @@
 
   <!-- Uniform Footer Structure -->
   <div id="site-footer-container" data-quote="&quot;You can never be overdressed or overeducated.&quot; — Oscar Wilde"></div>
-  <script src="js/components.js"></script>
-  <script src="js/main.js"></script>
+ 
+  <!-- Google Translate Integration Script (Lazy Loaded strictly on user interaction) -->
+  <script>
+    // Google Translate callback handler
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,mr',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+
+    (function () {
+      let isScriptLoaded = false;
+
+      // Dynamically injects the external Google Translate script
+      function loadGoogleTranslate(callback) {
+        if (isScriptLoaded) {
+          if (callback) callback();
+          return;
+        }
+        isScriptLoaded = true;
+        const s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        s.onload = () => {
+          if (callback) callback();
+        };
+        document.body.appendChild(s);
+      }
+
+      // Programmatically triggers language change inside Google's hidden dropdown
+      function triggerGoogleTranslate(langCode) {
+        const select = document.querySelector('#google_translate_element select');
+        if (select) {
+          select.value = langCode;
+          select.dispatchEvent(new Event('change'));
+        } else {
+          setTimeout(() => triggerGoogleTranslate(langCode), 250);
+        }
+      }
+
+      const langBtn = document.getElementById('langBtn');
+      const langMenu = document.getElementById('langMenu');
+
+      // Toggle custom menu on button click and trigger background script download
+      if (langBtn && langMenu) {
+        langBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          const isOpen = langMenu.classList.contains('is-open') || langMenu.style.display === 'block';
+          langMenu.style.display = isOpen ? 'none' : 'block';
+          langMenu.classList.toggle('is-open', !isOpen);
+          langBtn.setAttribute('aria-expanded', !isOpen);
+
+          // Preload Google script silently once dropdown opens
+          loadGoogleTranslate();
+        });
+
+        // Close menu if user clicks outside
+        document.addEventListener('click', function () {
+          langMenu.style.display = 'none';
+          langMenu.classList.remove('is-open');
+          langBtn.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      // Language item selection buttons
+      const buttons = document.querySelectorAll('.lang-btn');
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          const chosenLang = this.getAttribute('data-lang');
+
+          if (langMenu) {
+            langMenu.style.display = 'none';
+            langMenu.classList.remove('is-open');
+          }
+          if (langBtn) {
+            langBtn.setAttribute('aria-expanded', 'false');
+          }
+
+          loadGoogleTranslate(function () {
+            triggerGoogleTranslate(chosenLang);
+          });
+        });
+      });
+    })();
+  </script>
 
   <!-- Marquee animation script -->
   <script>
@@ -342,8 +465,6 @@
       play();
     })();
   </script>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script src="js/scroll-reveal.js"></script>
-  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"ad3eefdb8c8a4eef878d318fabc33076","r":1,"spa":2}' crossorigin="anonymous"></script>
+  <script src="js/components.js"></script>
 </body>
 </html>

@@ -36,6 +36,21 @@
     *, *::before, *::after {
       box-sizing: border-box;
     }
+
+    /* Google Translate Utility Styles (Prevents Layout Shifts & Hides Default Elements) */
+    #google_translate_element {
+      display: none !important;
+    }
+    body {
+      top: 0 !important;
+    }
+    .goog-te-banner-frame,
+    .skiptranslate:not(.lang-select) {
+      display: none !important;
+    }
+    .goog-te-gadget {
+      display: none !important;
+    }
   </style>
 
   <!-- Favicon & Styles -->
@@ -169,7 +184,7 @@
       <p class="hero__lead">Shalom International School offers an environment to grow and develop understanding of subject and its application in life, to practice their faith, and to be responsible citizens who are Christ-like in their service to others.</p>
       <div class="hero__actions">
         <a class="btn btn--primary" href="#form">New Admission?</a>
-        <a class="btn btn--outline" href="about_us.html">Learn More</a>
+        <a class="btn btn--outline" href="about_us.html" aria-label="Learn more about Shalom International School &amp; Jr. College">Learn More About Shalom</a>
       </div>
     </div>
     <div class="hero-slider__dots" id="heroDots"></div>
@@ -473,11 +488,94 @@
 
 <div id="site-footer-container" data-quote=""></div>
 
-<script src="js/components.js"></script>
-<script src="js/main.js"></script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script src="js/scroll-reveal.js"></script>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"ad3eefdb8c8a4eef878d318fabc33076","r":1,"spa":2}' crossorigin="anonymous"></script>
+<!-- Google Translate Integration Script (Lazy Loaded strictly on user interaction) -->
+<script>
+  // Google Translate callback handler
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,mr',
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+
+  (function () {
+    let isScriptLoaded = false;
+
+    // Dynamically injects the external Google Translate script
+    function loadGoogleTranslate(callback) {
+      if (isScriptLoaded) {
+        if (callback) callback();
+        return;
+      }
+      isScriptLoaded = true;
+      const s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      s.onload = () => {
+        if (callback) callback();
+      };
+      document.body.appendChild(s);
+    }
+
+    // Programmatically triggers language change inside Google's hidden dropdown
+    function triggerGoogleTranslate(langCode) {
+      const select = document.querySelector('#google_translate_element select');
+      if (select) {
+        select.value = langCode;
+        select.dispatchEvent(new Event('change'));
+      } else {
+        setTimeout(() => triggerGoogleTranslate(langCode), 250);
+      }
+    }
+
+    const langBtn = document.getElementById('langBtn');
+    const langMenu = document.getElementById('langMenu');
+
+    // Toggle custom menu on button click and trigger background script download
+    if (langBtn && langMenu) {
+      langBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const isOpen = langMenu.classList.contains('is-open') || langMenu.style.display === 'block';
+        langMenu.style.display = isOpen ? 'none' : 'block';
+        langMenu.classList.toggle('is-open', !isOpen);
+        langBtn.setAttribute('aria-expanded', !isOpen);
+
+        // Preload Google script silently once dropdown opens
+        loadGoogleTranslate();
+      });
+
+      // Close menu if user clicks outside
+      document.addEventListener('click', function () {
+        langMenu.style.display = 'none';
+        langMenu.classList.remove('is-open');
+        langBtn.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    // Language item selection buttons
+    const buttons = document.querySelectorAll('.lang-btn');
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const chosenLang = this.getAttribute('data-lang');
+
+        if (langMenu) {
+          langMenu.style.display = 'none';
+          langMenu.classList.remove('is-open');
+        }
+        if (langBtn) {
+          langBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        loadGoogleTranslate(function () {
+          triggerGoogleTranslate(chosenLang);
+        });
+      });
+    });
+  })();
+</script>
 
 <!-- Marquee animation script -->
 <script>
@@ -510,5 +608,6 @@
     play();
   })();
 </script>
+  <script src="js/components.js"></script>
 </body>
 </html>

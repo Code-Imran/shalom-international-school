@@ -1,0 +1,18 @@
+﻿# Shalom International School & Jr. College
+
+> Premier co-educational residential and day-boarding school in Panchgani, Maharashtra, India. Affiliated with CISCE (ICSE) and the Maharashtra State Board (SSC & HSC).
+
+## Core Pages
+
+- [Home](https://www.shalominternationalschool.com/index.html): Overview of curriculum, residential boarding amenities, campus environment, and admissions.
+- [About Us](https://www.shalominternationalschool.com/about_us.html): History, educational ethos, academic sessions, sports, and laboratory infrastructure.
+- [Vision & Mission](https://www.shalominternationalschool.com/vision-and-mission.html): Institutional values, spiritual principles, and educational philosophy.
+- [Facilities](https://www.shalominternationalschool.com/facilities.html): Boarding hostels, smart classrooms, sports grounds, science labs, and dining amenities.
+- [School Management](https://www.shalominternationalschool.com/management.html): Leadership, administration, and faculty profiles.
+- [News & Events](https://www.shalominternationalschool.com/news.html): Latest announcements, examination pass rates, and academic calendars.
+- [Contact & Admissions](https://www.shalominternationalschool.com/contact-us.html): Campus address, inquiry form, email addresses, and official helpline phone numbers.
+
+## For Parents
+
+- [Things to Bring](https://www.shalominternationalschool.com/things-to-bring.html): Mandatory checklist for hostel boarders including uniforms, bedding, and supplies.
+- [Parent Declaration](https://www.shalominternationalschool.com/parent-declaration.html): School agreements, code of conduct, medical consent, and vacation scheduling rules.
