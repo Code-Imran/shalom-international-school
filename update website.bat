@@ -2,85 +2,85 @@
 setlocal enabledelayedexpansion
 
 echo ============================================
-echo    Shalom International School - Deploy
+echo      Shalom International School - Deploy
 echo ============================================
 echo.
 
-REM Make sure we're in a git repo
+:: 1. Navigate to script directory to ensure correct path
+cd /d "%~dp0"
+
+:: 2. Check if .git folder exists
 if not exist ".git" (
-    echo ERROR: This folder is not a git repository.
-    echo Make sure "Deploy Website.bat" is sitting inside your
-    echo website folder.
+    echo [ERROR] Not inside a Git repository root.
+    echo Ensure this file is placed in your project root folder.
     echo.
     pause
     exit /b 1
 )
 
-REM Check for changes
-echo Checking for changes...
-git status --short
+:: 3. Detect current branch
+set "BRANCH=main"
+for /f "delims=" %%b in ('git branch --show-current') do (
+    set "BRANCH=%%b"
+)
+echo Active Branch: %BRANCH%
 echo.
 
-for /f %%i in ('git status --porcelain ^| find /c /v ""') do set "CHANGE_COUNT=%%i"
+:: 4. Stage changes
+echo [1/3] Staging all files...
+git add -A
 
-if "%CHANGE_COUNT%"=="0" (
-    echo No changes detected in Git.
-    echo Proceeding to deploy live to Cloudflare...
-) else (
-    REM Ask for a commit message, with a sensible default
-    set "COMMIT_MSG="
-    set /p COMMIT_MSG="Enter a short description of your changes (or press Enter for default): "
+:: 5. Commit
+echo [2/3] Checking for changes to commit...
+set /p COMMIT_MSG="Enter commit message (or press ENTER for default): "
 
-    if "!COMMIT_MSG!"=="" (
-        for /f "tokens=1-3 delims=/ " %%a in ("%date%") do set "TODAY=%%a-%%b-%%c"
-        set "COMMIT_MSG=Update site - !TODAY! !time!"
-    )
+if "%COMMIT_MSG%"=="" (
+    set "COMMIT_MSG=Site update %date%"
+)
 
-    echo.
-    echo Staging changes...
-    git add .
+git commit -m "%COMMIT_MSG%"
+if errorlevel 1 (
+    echo No new changes detected or commit completed.
+)
 
-    echo Committing...
-    git commit -m "!COMMIT_MSG!"
-
+:: 6. Push to GitHub
+echo.
+echo [3/3] Pushing to GitHub...
+git push origin %BRANCH%
+if errorlevel 1 (
+    echo Push with default upstream failed. Trying --set-upstream...
+    git push -u origin %BRANCH%
     if errorlevel 1 (
-        echo.
-        echo ERROR: Commit failed. See message above.
-        echo.
-        pause
-        exit /b 1
-    )
-
-    echo.
-    echo Pushing to GitHub...
-    git push
-
-    if errorlevel 1 (
-        echo.
-        echo ERROR: Push failed. Check your internet connection or GitHub login.
-        echo.
+        echo [ERROR] Git push failed.
         pause
         exit /b 1
     )
 )
+echo GitHub push succeeded!
 
+:: 7. Cloudflare Deployment
 echo.
 echo ============================================
-echo Deploying directly to Cloudflare Worker...
+echo Deploying to Cloudflare...
 echo ============================================
-call npx wrangler deploy
+
+if exist "wrangler.toml" (
+    call npx wrangler deploy
+) else if exist "wrangler.jsonc" (
+    call npx wrangler deploy
+) else (
+    call npx wrangler pages deploy . --commit-dirty=true
+)
 
 if errorlevel 1 (
-    echo.
-    echo ERROR: Cloudflare deployment failed. See error above.
-    echo.
+    echo [ERROR] Cloudflare deploy failed.
     pause
     exit /b 1
 )
 
 echo.
 echo ============================================
-echo    Done! GitHub is updated and site is live.
+echo Deployment Complete!
 echo ============================================
 echo.
 pause

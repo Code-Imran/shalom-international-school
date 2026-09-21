@@ -14,8 +14,8 @@
   --color-text: #373737;
   --color-bg-soft: #F9F9F9;
   --color-accent: #FFBF00;
-  --font-heading: "Sora", sans-serif;
-  --font-body: "Poppins", sans-serif;
+  --font-heading: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-display: 'Old London', 'UnifrakturMaguntia', serif;
   --container-width: 1180px;
 }
@@ -53,9 +53,7 @@ h1, h2, h3, h4 {
 header,
 .site-header,
 .header {
-  background-image: url('../images/stripes.png') !important;
-  background-repeat: repeat !important;
-  background-position: top left !important;
+  background-color: #ffffff;
   position: relative;
   z-index: 100;
 }
@@ -73,10 +71,12 @@ header,
 
 .social-float a,
 .social-float__icon {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: #fff;
@@ -198,12 +198,14 @@ header,
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 6px;
-  padding: .4rem .8rem;
+  padding: 0.6rem 0.9rem;
+  min-height: 48px;
   cursor: pointer;
   font-weight: 600;
   font-size: .9rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: .4rem;
 }
 
@@ -221,20 +223,22 @@ header,
   list-style: none;
   margin: 0;
   padding: .4rem 0;
-  min-width: 150px;
+  min-width: 160px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   z-index: 99999 !important;
 }
 
 .lang-select__menu.is-open { display: block; }
 .lang-select__menu li button {
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
+  min-height: 48px;
   text-align: left;
   border: none;
   background: none;
-  padding: .5rem 1rem;
-  font-size: .9rem;
+  padding: .6rem 1rem;
+  font-size: .95rem;
   cursor: pointer;
 }
 .lang-select__menu li button:hover { background: #f5f5f5; }
@@ -261,8 +265,10 @@ header,
 .nav-menu > li { position: relative; }
 .nav-menu > li > a {
   position: relative;
-  display: block;
-  padding: 15px;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 15px;
   color: #fff;
   font-weight: 600;
   font-size: .95rem;
@@ -273,7 +279,7 @@ header,
   content: '';
   position: absolute;
   left: 50%;
-  bottom: 8px;
+  bottom: 6px;
   width: 0;
   height: 2px;
   background: #f3f4f2;
@@ -285,7 +291,7 @@ header,
 .nav-menu > li > a:focus { color: var(--color-accent); }
 .nav-menu > li > a:hover::after,
 .nav-menu > li > a:focus::after { width: 55%; }
-.plus { font-size: .8em; opacity: .8; }
+.plus { font-size: .8em; opacity: .8; margin-left: 4px; }
 
 .submenu {
   list-style: none;
@@ -306,8 +312,10 @@ header,
 .has-submenu.is-open .submenu { display: block; }
 
 .submenu a {
-  display: block;
-  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 8px 16px;
   color: #333;
   font-weight: 500;
   transition: color .2s ease, background .2s ease;
@@ -317,10 +325,13 @@ header,
 .nav-toggle {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: 0;
-  padding: 14px;
+  padding: 12px;
+  min-width: 48px;
+  min-height: 48px;
   cursor: pointer;
 }
 .nav-toggle span { width: 26px; height: 3px; background: #fff; }
@@ -330,8 +341,10 @@ header,
   background: var(--color-bg-soft, #f8fafc);
   padding: .65rem 0;
   border-bottom: 1px solid #eee;
+  min-height: 42px;
   position: relative;
   z-index: 10;
+  contain: layout;
 }
 .marquee {
   display: flex;
@@ -391,8 +404,9 @@ header,
 .hero-slider {
   position: relative;
   height: 70vh;
-  min-height: 440px;
+  min-height: 520px;
   overflow: hidden;
+  contain: layout paint;
 }
 .hero-slide {
   position: absolute;
@@ -433,7 +447,10 @@ header,
 .hero__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
   padding: .75em 1.75em;
   border-radius: 24px;
   border: 1px solid transparent;
@@ -455,8 +472,8 @@ header,
   gap: 10px;
 }
 .hero-slider__dot {
-  width: 11px;
-  height: 11px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background: rgba(255,255,255,.5);
   border: 0;
@@ -560,12 +577,14 @@ header,
 }
 
 /* ============================================================
-   News & Updates
+   News & Updates (Content Visibility Optimized)
    ============================================================ */
 .news-updates {
   max-width: var(--container-width);
   margin: 3rem auto;
   padding: 0 1.5rem;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 650px;
 }
 .news-updates .news-grid {
   display: grid;
@@ -581,6 +600,8 @@ header,
   margin: 0 auto;
   padding: 3rem 1.5rem;
   text-align: center;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
 }
 
 .reviews-scroll {
@@ -588,6 +609,7 @@ header,
   display: flex;
   width: 100%;
   margin: 1.5rem 0;
+  contain: layout paint;
   mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
@@ -596,6 +618,8 @@ header,
   display: flex;
   gap: 1.5rem;
   width: max-content;
+  will-change: transform;
+  transform: translateZ(0);
   animation: scroll-reviews 38s linear infinite;
 }
 
@@ -604,8 +628,8 @@ header,
 }
 
 @keyframes scroll-reviews {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
 }
 
 .review-card {
@@ -620,6 +644,7 @@ header,
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  contain: content;
 }
 .review-stars {
   color: #f59e0b;
@@ -640,7 +665,7 @@ header,
 }
 
 /* ============================================================
-   Admission / Contact Form (Modern Floating Card Style)
+   Admission / Contact Form
    ============================================================ */
 .contact-form-section {
   width: 100%;
@@ -651,6 +676,8 @@ header,
   text-align: center;
   border-top: 1px solid #e2e8f0;
   border-bottom: 1px solid #e2e8f0;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
 }
 
 .contact-form-section .section-heading {
@@ -845,6 +872,8 @@ header,
   width: 100%;
   background: #111;
   padding-top: 2.5rem;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
 }
 .video-full__heading {
   color: #fff;
@@ -854,14 +883,15 @@ header,
 .video-full__inner {
   position: relative;
   width: 100%;
-  aspect-ratio: 21 / 9;
+  max-width: 1000px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
 }
 .video-full__inner iframe {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
+  display: block;
 }
 
 /* ============================================================
@@ -936,11 +966,14 @@ header,
   flex-wrap: wrap; 
   justify-content: center; 
   gap: 1.2rem; 
-  margin: 0;
+  margin: 0; 
   padding: 0; 
 }
 .footer-bottom-menu a { 
-  font-size: 0.82rem;
+  font-size: 0.85rem;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
   color: #333333;
   text-decoration: none;
   transition: color .2s ease; 
@@ -1131,11 +1164,6 @@ main > section:not(.hero-slider):not(.video-full) {
     grid-template-columns: 1fr;
   }
   .social-float { right: 8px; gap: 8px; }
-  .social-float a,
-  .social-float__icon {
-    width: 34px;
-    height: 34px;
-  }
   .contact-form { padding: 2rem 1.25rem; }
   .form-actions .btn--primary { width: 100%; }
 }

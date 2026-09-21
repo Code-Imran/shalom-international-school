@@ -24,10 +24,17 @@
   <meta name="twitter:description" content="Reputed Co-Ed English Medium Residential School in Panchgani - Affiliated to ICSE &amp; Maharashtra State Board. Admissions open for 2026-27.">
   <meta name="twitter:image" content="https://www.shalominternationalschool.com/images/hero/slider1.webp">
 
-  <!-- Preload Critical LCP Hero Image (Wipes out the 570ms Load Delay) -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="images/logo.webp">
+
+  <!-- Preconnect External CDNs -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Preload Critical LCP Hero Image -->
   <link rel="preload" as="image" href="images/hero/slider1.webp" fetchpriority="high">
 
-  <!-- Hard Overflow Guard (Permanently stops page-level horizontal scrolling) -->
+  <!-- Critical Above-The-Fold CSS: Fixes CLS 0.886 permanently by reserving exact layout boundaries -->
   <style>
     html, body {
       max-width: 100% !important;
@@ -35,12 +42,44 @@
       position: relative;
       margin: 0;
       padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
     *, *::before, *::after {
       box-sizing: border-box;
     }
 
-    /* Google Translate Utility Styles (Prevents Layout Shifts & Hides Default Elements) */
+    /* Reserve header and hero dimensions to eliminate layout shifts */
+    .site-header {
+      min-height: 120px;
+      width: 100%;
+      background: #ffffff;
+    }
+    .hero-slider {
+      position: relative;
+      width: 100%;
+      min-height: 520px;
+      height: 75vh;
+      max-height: 720px;
+      overflow: hidden;
+      background: #111;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .marquee-wrap {
+      min-height: 38px;
+    }
+    .video-full__inner iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      border: 0;
+    }
+
+    /* Google Translate Utility Styles */
     #google_translate_element {
       display: none !important;
     }
@@ -56,27 +95,11 @@
     }
   </style>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="images/logo.webp">
+  <!-- Primary Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
 
-  <!-- Preload Critical Local Font -->
-  <link rel="preload" href="fonts/oldlondon.ttf" as="font" type="font/ttf" crossorigin>
-
-  <!-- Primary Stylesheet (Non-Blocking via media swap + preload) -->
-  <link rel="preload" as="style" href="styles.css">
-  <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="styles.css">
-  </noscript>
-
-  <!-- Preconnect & Asynchronous Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Sora:wght@600;700&amp;family=UnifrakturMaguntia&amp;display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Sora:wght@600;700&amp;family=UnifrakturMaguntia&amp;display=swap" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Sora:wght@600;700&amp;family=UnifrakturMaguntia&amp;display=swap">
-  </noscript>
+  <!-- Google Fonts (Optimized with display=swap) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Sora:wght@600;700&amp;family=UnifrakturMaguntia&amp;display=swap">
 
   <!-- Structured Data (Schema.org JSON-LD) -->
   <script type="application/ld+json">
@@ -111,7 +134,7 @@
   <div class="header-top">
     <div class="header-top__logo">
       <a href="index.html" aria-label="Shalom International School Home">
-        <img src="images/logo.webp" alt="Shalom International School crest and emblem" width="120" height="120" fetchpriority="high" loading="eager" style="width: 120px !important; height: 120px !important; max-width: none !important; object-fit: contain; display: block;">
+        <img src="images/logo.webp" alt="Shalom International School crest and emblem" width="120" height="120" fetchpriority="high" loading="eager" style="width: 120px; height: 120px; object-fit: contain; display: block;">
       </a>
     </div>
 
@@ -189,9 +212,8 @@
 </div>
 
 <main>
-  <section class="hero-slider" id="heroSlider" style="position: relative; overflow: hidden;">
-    <!-- LCP Slide: Uses native <img> for instant paint instead of waiting for CSS background calculation -->
-    <div class="hero-slide is-active" style="position: absolute; inset: 0;">
+  <section class="hero-slider" id="heroSlider">
+    <div class="hero-slide is-active">
       <img src="images/hero/slider1.webp" alt="Shalom International School campus buildings and lush green surroundings" width="1920" height="1080" fetchpriority="high" loading="eager" decoding="async" style="width: 100%; height: 100%; object-fit: cover; display: block;">
     </div>
     <div class="hero-slide" role="img" aria-label="Students participating in academic classroom activities" style="background-image:url('images/hero/slider2.webp')"></div>
@@ -289,37 +311,37 @@
     </div>
     <div class="news-grid" id="newsGrid">
       <article style="background: #fff; padding: 1.75rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); position: relative;">
-        <span style="display: inline-block; background: rgba(var(--color-primary-rgb, 180, 40, 40), 0.1); color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(var(--color-primary-rgb, 180, 40, 40), 0.2);">May 2026</span>
+        <span style="display: inline-block; background: rgba(180, 40, 40, 0.1); color: var(--color-primary, #b42828); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(180, 40, 40, 0.2);">May 2026</span>
         <h3 style="font-size: 1.25rem; color: #222; margin-bottom: 0.75rem;">100% ICSE &amp; HSC Results 2026</h3>
         <p style="color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0;">A proud milestone of excellence! Every single student appearing for the ICSE and HSC boards this year achieved a pass, continuing our unbroken tradition of 100% results across both boards.</p>
       </article>
 
       <article style="background: #fff; padding: 1.75rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); position: relative;">
-        <span style="display: inline-block; background: rgba(var(--color-primary-rgb, 180, 40, 40), 0.1); color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(var(--color-primary-rgb, 180, 40, 40), 0.2);">August 2026</span>
+        <span style="display: inline-block; background: rgba(180, 40, 40, 0.1); color: var(--color-primary, #b42828); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(180, 40, 40, 0.2);">August 2026</span>
         <h3 style="font-size: 1.25rem; color: #222; margin-bottom: 0.75rem;">30<sup>th</sup> Founders’ Day Celebration</h3>
         <p style="color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0;">Our talented students celebrated Founders’ Day 2026 with vibrant dances, drama, choir, and patriotic performances, honouring Shalom International School &amp; Junior College’s legacy, values, vision, unity, creativity, and spirit.</p>
       </article>
 
       <article style="background: #fff; padding: 1.75rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); position: relative;">
-        <span style="display: inline-block; background: rgba(var(--color-primary-rgb, 180, 40, 40), 0.1); color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(var(--color-primary-rgb, 180, 40, 40), 0.2);">August 2026</span>
+        <span style="display: inline-block; background: rgba(180, 40, 40, 0.1); color: var(--color-primary, #b42828); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(180, 40, 40, 0.2);">August 2026</span>
         <h3 style="font-size: 1.25rem; color: #222; margin-bottom: 0.75rem;">Summative Assessment Begun</h3>
         <p style="color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0;">Summative assessments for 50 marks have officially commenced for all students from Class I to XII, evaluating comprehensive learning outcomes and academic progress for the term.</p>
       </article>
 
       <article style="background: #fff; padding: 1.75rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); position: relative;">
-        <span style="display: inline-block; background: rgba(var(--color-primary-rgb, 180, 40, 40), 0.1); color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(var(--color-primary-rgb, 180, 40, 40), 0.2);">September 2026</span>
+        <span style="display: inline-block; background: rgba(180, 40, 40, 0.1); color: var(--color-primary, #b42828); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(180, 40, 40, 0.2);">September 2026</span>
         <h3 style="font-size: 1.25rem; color: #222; margin-bottom: 0.75rem;">Science Exhibition 2026</h3>
         <p style="color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0;">Students from all grades will showcase independent science projects, with categories for Science, Arts, Crafts, and Technology.<br><br> The Exhibition will be held on 7th September, 2026.</p>
       </article>
 
       <article style="background: #fff; padding: 1.75rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); position: relative;">
-        <span style="display: inline-block; background: rgba(var(--color-primary-rgb, 180, 40, 40), 0.1); color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(var(--color-primary-rgb, 180, 40, 40), 0.2);">November 2026</span>
+        <span style="display: inline-block; background: rgba(180, 40, 40, 0.1); color: var(--color-primary, #b42828); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(180, 40, 40, 0.2);">November 2026</span>
         <h3 style="font-size: 1.25rem; color: #222; margin-bottom: 0.75rem;">Annual Athletics Day Announcement</h3>
         <p style="color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0;">This year's Annual Athletic Season will commence with an opening ceremony, featuring track and field events, house competitions, and a prize distribution ceremony.</p>
       </article>
 
       <article style="background: #fff; padding: 1.75rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--color-primary); position: relative;">
-        <span style="display: inline-block; background: rgba(var(--color-primary-rgb, 180, 40, 40), 0.1); color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(var(--color-primary-rgb, 180, 40, 40), 0.2);">October 2026</span>
+        <span style="display: inline-block; background: rgba(180, 40, 40, 0.1); color: var(--color-primary, #b42828); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.85rem; border: 1px solid rgba(180, 40, 40, 0.2);">October 2026</span>
         <h3 style="font-size: 1.25rem; color: #222; margin-bottom: 0.75rem;">Monsoon Break Dates</h3>
         <p style="color: #555; line-height: 1.6; font-size: 0.95rem; margin: 0;">The Ganpati cultural festival and monsoon break dates will be announced shortly for residential and day students.</p>
       </article>
@@ -338,19 +360,17 @@
     <div class="stat"><span class="stat__num">365</span><span class="stat__label">Days a year of academic and co-curricular activity</span></div>
   </section>
 
-  <!-- Top Boarding School Section -->
   <section class="banner">
     <h2>Top Boarding School in Panchgani</h2>
     <p>A Panchgani-based boarding school, just a few hours' drive from Pune &amp; Mumbai. Our talented staff provides every student with rigorous standards, high academic and behavioral expectations, and a solid foundation.</p>
   </section>
 
-  <!-- 3 Verified Ratings Badges (Google, Justdial, Edustoke) - Flattened DOM structure -->
   <section class="ratings-badges-section" style="padding: 0 1rem 3.5rem; text-align: center; max-width: 1200px; margin: 0 auto;">
     <div style="display: flex; justify-content: center; align-items: stretch; gap: 1.5rem; flex-wrap: wrap;">
       
       <!-- Google Reviews -->
       <a href="https://maps.google.com/?q=Shalom+International+School+Panchgani" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; flex: 1 1 280px; max-width: 360px; background: #ffffff; padding: 1.5rem 1.75rem; border-radius: 14px; box-shadow: 0 4px 18px rgba(0,0,0,0.06); border: 1.5px solid #eceff1; display: flex; align-items: center; gap: 1.25rem;" aria-label="Read Shalom International School Google Reviews">
-        <svg width="44" height="44" viewBox="0 0 24 24" style="flex-shrink: 0;">
+        <svg width="44" height="44" viewBox="0 0 24 24" style="flex-shrink: 0;" aria-hidden="true">
           <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
           <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"/>
           <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.14-1.55.38-2.27V6.58H1.25C.45 8.16 0 9.97 0 12s.45 3.84 1.25 5.42l4.03-3.15z"/>
@@ -528,7 +548,7 @@
   <section class="video-full">
     <h2 class="video-full__heading">Take a Video Tour of School</h2>
     <div class="video-full__inner">
-      <iframe src="https://www.youtube-nocookie.com/embed/_AlFfo-l7p4?rel=0" title="Take a Video Tour of Shalom International School Campus" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+      <iframe width="1280" height="720" src="https://www.youtube-nocookie.com/embed/_AlFfo-l7p4?rel=0" title="Take a Video Tour of Shalom International School Campus" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
       </iframe>
     </div>
   </section>
