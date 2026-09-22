@@ -1171,3 +1171,30 @@ main > section:not(.hero-slider):not(.video-full) {
 @media (prefers-reduced-motion: reduce) {
   .reviews-track { animation: none; }
 }
+/* === Automated Header Alignment & Fix Patch === */
+.header-top__logo a {
+  display: inline-block !important;
+  width: 120px !important;
+  height: 120px !important;
+  flex-shrink: 0 !important;
+}
+
+.header-top__logo img {
+  width: 120px !important;
+  height: 120px !important;
+  max-width: none !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+.header-top__text {
+  min-width: 0 !important;
+  overflow: visible !important;
+}
+
+.school-title {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-family: var(--font-display), 'Georgia', serif !important;
+}
